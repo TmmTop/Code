@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html  oncontextmenu = "return false">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>Bootstrap Table Examples</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstraptable/css/bootstrap-table.css">
+    <link rel="stylesheet" href="js/bootstrap-editable.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstraptable/js/bootstrap-table.js"></script>
+    <script src="js/bootstrap-table-editable.js"></script>
+    <script src="js/bootstrap-editable.js"></script>
+    <script src="layer/layer.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        function AddPro() {
+            layer.ready(function () {
+                layer.open({
+                    type: 1,
+                    title: '添加帐号',
+                    area: ['800px', '600px'],
+                    content:
+                    '<input class="form-control" type="text" style="margin-top:30px;width:50%;margin-left:auto;margin-right:auto" id="Proname"  placeholder="请输入帐号">' +
+                    '<input class="form-control" type="text" style="margin-top:30px;width:50%;margin-left:auto;margin-right:auto"  id="Proprice" placeholder="请输入密码" >' +
+                    '<input class="form-control" type="text" style="margin-top:30px;width:50%;margin-left:auto;margin-right:auto"  id="Proprice" placeholder="请输入姓名" >' +
+                    '<input class="form-control" type="text" style="margin-top:30px;width:50%;margin-left:auto;margin-right:auto"  id="Proprice" placeholder="请输入职务" >' +
+                    '<input class="form-control" type="text" style="margin-top:30px;width:50%;margin-left:auto;margin-right:auto"  id="Proprice" placeholder="请输入权限" >' +
+                    '<textarea class="form-control" type="text" style="margin-top:30px;width:50%;height:105px;max-height:105px;max-width:50%;margin-left:auto;margin-right:auto" id="Proprice" placeholder="请输入备注信息" ></textarea>' +
+                    '<button style="width:160px;margin-top:30px;margin-left:200px" type="submit" class="btn btn-default">添加</button>' +
+                    '<button style="width:160px;margin-top:30px;float:right;margin-right:200px" type="submit" class="btn btn-default" onclick="canel()"> 取消</button>'
+                });
+            });
+        }
+        function canel() {
+            layer.closeAll();
+        }
+    </script>
+    <div style="z-index:99999;margin-top:10px;position:absolute">
+        <button id="SendPara" onclick="AddPro()" class="btn btn-default" type="button">添加帐号</button>
+    </div>
+    <table id="querylist"
+           data-toolbar="#toolbar"
+           data-search="true"
+           data-show-refresh="true"
+           data-show-toggle="true"
+           data-show-columns="true"
+           data-show-export="true"></table>
+    <!--<table id="querylist" class="table table-striped" style="text-align:center"></table>-->
+    <script type="text/javascript">
+        $('#querylist').bootstrapTable({
+            columns: [{
+                field: 'id',
+                title: '编号',
+                sortable: true,
+                align: 'center'
+            }, {
+                field: 'name',
+                title: '帐号',
+                align: 'center',
+                editable: {
+                    type: 'text',
+                    validate: function (value) {
+                        if ($.trim(value) == '') {
+                            return '帐号不能为空';
+                        }
+                    }
+                }
+            }, {
+                field: 'price',
+                title: '姓名',
+                align: 'center',
+                editable: {
+                    type: 'text',
+                    validate: function (value) {
+                        if ($.trim(value) == '') {
+                            return '姓名不能为空';
+                        }
+                    }
+                }
+            }, {
+                field: 'price',
+                title: '职务',
+                align: 'center',
+                editable: {
+                    type: 'text',
+                    validate: function (value) {
+                        if ($.trim(value) == '') {
+                            return '职务不能为空';
+                        }
+                    }
+                }
+            }, {
+                field: 'price',
+                title: '权限',
+                align: 'center',
+                editable: {
+                    type: 'text',
+                    validate: function (value) {
+                        if ($.trim(value) == '') {
+                            return '权限不能为空';
+                        }
+                    }
+                }
+            }, {
+                field: 'price',
+                title: '创建日期',
+                align: 'center'
+            },{
+                field: 'price',
+                title: '备注信息',
+                align: 'center',
+                editable: {
+                    type: 'text'
+                }
+            }, {
+                field: 'operation',
+                title: '操作',
+                align: 'center',
+                formatter: function (value, row, index) {
+                    var s = '<a class = "save" href="javascript:void(0)">保存</a>';
+                    var d = '<a class = "remove" href="javascript:void(0)">删除</a>';
+                    return s + ' ' + d;
+                },
+                events: 'operateEvents'
+            }],
+            sortName: '',
+            sortOrder: 'desc',
+            pagination: true,
+            sidePagination: 'client',
+            pageNumber: 1,
+            pageSize: 15,
+            pageList: [5, 15, 21],
+            queryParams: function (params) {
+                return {
+                    meterID: $('#meterid').val(),
+                    pageSize: params.limit,
+                    offset: params.offset,
+                    sortOrder: params.order,
+                    begintime: $('#begintime').val(),
+                    endtime: $('#endtime').val()
+                }
+            },
+            url: 'demo.json'
+        });
+        window.operateEvents = {
+            'click .save': function (e, value, row, index) {
+                $.ajax({
+                    type: "post",
+                    data: row,
+                    url: '',
+                    success: function (data) {
+                        layer.msg('修改成功！', { icon: 1, time: 500});
+                    }
+                });
+            },
+            'click .remove': function (e, value, row, index) {
+                $.ajax({
+                    type: "post",
+                    data: row,
+                    url: '',
+                    success: function (data) {
+                        layer.msg('删除成功！', { icon: 6, time: 500 });
+                        $('#querylist').bootstrapTable('remove', {
+                            field: '',
+                            values: [row.MeterMeasureHistoryID]
+                        });
+                    }
+                });
+            }
+        };
+
+    </script>
+    <script type="text/javascript">
+        $('#submitgetdata').click(function () {
+            $('#msg').html('');
+            var begintime_ = $('#begintime').val();
+            var endtime_ = $('#endtime').val();
+            var err = '';
+
+            if (begintime_ == '' || endtime_ == '') {
+                err = '查询时间不能为空';
+            } else if (Date.parse(endtime_) - Date.parse(begintime_) < 0) {
+                err = '查询时间设置错误';
+            }
+
+            if (err) {
+                $('#msg').html(err + '!');
+                $('#msg').fadeIn(1000);
+            }
+            else {
+                $('#msg').html("正在提交!");
+                $('#querylist').bootstrapTable('refresh');
+                $('#msg').fadeOut(3000);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B2FC8685-C9C9-46BB-A152-FF51015DC149}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>StoreOrderInfo</RootNamespace>
+    <AssemblyName>StoreOrderInfo</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NetDimension.NanUI, Version=0.4.3.30046, Culture=neutral, PublicKeyToken=1c00e6f9eba1a657, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\NetDimension.NanUI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="UI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI.Designer.cs">
+      <DependentUpon>UI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Code\fonts\fontawesome-webfont.eot" />
+    <EmbeddedResource Include="Code\fonts\fontawesome-webfont.ttf" />
+    <EmbeddedResource Include="Code\fonts\fontawesome-webfont.woff" />
+    <EmbeddedResource Include="Code\fonts\fontawesome-webfont.woff2" />
+    <EmbeddedResource Include="Code\fonts\FontAwesome.otf" />
+    <EmbeddedResource Include="Code\fonts\glyphicons-halflings-regular.eot" />
+    <EmbeddedResource Include="Code\fonts\glyphicons-halflings-regular.ttf" />
+    <EmbeddedResource Include="Code\fonts\glyphicons-halflings-regular.woff" />
+    <EmbeddedResource Include="Code\fonts\glyphicons-halflings-regular.woff2" />
+    <EmbeddedResource Include="Code\fonts\glyphicons-halflings-regulard41d.eot" />
+    <EmbeddedResource Include="Code\fonts\weathericons-regular-webfont.eot" />
+    <EmbeddedResource Include="Code\fonts\weathericons-regular-webfont.ttf" />
+    <EmbeddedResource Include="Code\fonts\weathericons-regular-webfont.woff" />
+    <EmbeddedResource Include="Code\fonts\weathericons-regular-webfontd41d.eot" />
+    <EmbeddedResource Include="Code\js\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <EmbeddedResource Include="Code\js\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <EmbeddedResource Include="Code\js\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <EmbeddedResource Include="Code\js\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <EmbeddedResource Include="UI.resx">
+      <DependentUpon>UI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Code\UI\bootstrap\css\bootstrap-theme.css.map" />
+    <EmbeddedResource Include="Code\UI\bootstrap\css\bootstrap-theme.min.css.map" />
+    <EmbeddedResource Include="Code\UI\bootstrap\css\bootstrap.css.map" />
+    <EmbeddedResource Include="Code\UI\bootstrap\css\bootstrap.min.css.map" />
+    <EmbeddedResource Include="Code\UI\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <EmbeddedResource Include="Code\UI\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <EmbeddedResource Include="Code\UI\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <EmbeddedResource Include="Code\UI\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <EmbeddedResource Include="Code\UI\bootstrap\js\jquery-1.9.1.min.map" />
+    <EmbeddedResource Include="Code\UI\demo.json" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Code\UI\Customer.html" />
+    <EmbeddedResource Include="Code\UI\Account.html" />
+    <EmbeddedResource Include="Code\UI\Order.html" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\css\bootstrap-editable.css" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\css\bootstrap-table.css" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\css\bootstrap-table.min.css" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\js\bootstrap-table-locale-all.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\js\bootstrap-table-locale-all.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\js\bootstrap-table.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\js\bootstrap-table.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-af-ZA.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-af-ZA.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-ar-SA.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-ar-SA.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-ca-ES.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-ca-ES.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-cs-CZ.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-cs-CZ.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-da-DK.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-da-DK.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-de-DE.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-de-DE.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-el-GR.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-el-GR.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-en-US.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-en-US.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-es-AR.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-es-AR.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-es-CL.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-es-CL.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-es-CR.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-es-CR.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-es-ES.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-es-ES.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-es-MX.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-es-MX.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-es-NI.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-es-NI.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-es-SP.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-es-SP.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-et-EE.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-et-EE.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-fa-IR.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-fa-IR.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-fr-BE.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-fr-BE.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-fr-FR.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-fr-FR.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-he-IL.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-he-IL.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-hr-HR.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-hr-HR.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-hu-HU.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-hu-HU.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-id-ID.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-id-ID.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-it-IT.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-it-IT.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-ja-JP.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-ja-JP.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-ka-GE.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-ka-GE.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-ko-KR.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-ko-KR.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-ms-MY.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-ms-MY.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-nb-NO.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-nb-NO.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-nl-NL.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-nl-NL.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-pl-PL.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-pl-PL.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-pt-BR.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-pt-BR.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-pt-PT.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-pt-PT.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-ro-RO.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-ro-RO.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-ru-RU.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-ru-RU.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-sk-SK.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-sk-SK.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-sv-SE.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-sv-SE.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-th-TH.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-th-TH.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-tr-TR.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-tr-TR.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-uk-UA.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-uk-UA.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-ur-PK.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-ur-PK.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-uz-Latn-UZ.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-uz-Latn-UZ.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-vi-VN.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-vi-VN.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-zh-CN.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-zh-CN.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-zh-TW.js" />
+    <EmbeddedResource Include="Code\UI\bootstraptable\locale\bootstrap-table-zh-TW.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstrap\css\bootstrap-theme.css" />
+    <EmbeddedResource Include="Code\UI\bootstrap\css\bootstrap-theme.min.css" />
+    <EmbeddedResource Include="Code\UI\bootstrap\css\bootstrap.css" />
+    <EmbeddedResource Include="Code\UI\bootstrap\css\bootstrap.min.css" />
+    <EmbeddedResource Include="Code\UI\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <EmbeddedResource Include="Code\UI\bootstrap\js\bootstrap.js" />
+    <EmbeddedResource Include="Code\UI\bootstrap\js\bootstrap.min.js" />
+    <EmbeddedResource Include="Code\UI\bootstrap\js\jquery-1.9.1.intellisense.js" />
+    <EmbeddedResource Include="Code\UI\bootstrap\js\jquery-1.9.1.js" />
+    <EmbeddedResource Include="Code\UI\bootstrap\js\jquery-1.9.1.min.js" />
+    <EmbeddedResource Include="Code\UI\js\bootstrap-editable.css" />
+    <EmbeddedResource Include="Code\UI\js\bootstrap-editable.js" />
+    <EmbeddedResource Include="Code\UI\js\bootstrap-table-editable.js" />
+    <EmbeddedResource Include="Code\UI\js\bootstrap-table-export.js" />
+    <EmbeddedResource Include="Code\UI\js\index.js" />
+    <EmbeddedResource Include="Code\UI\js\jquery.min.js" />
+    <EmbeddedResource Include="Code\UI\layer\layer.js" />
+    <EmbeddedResource Include="Code\UI\layer\mobile\layer.js" />
+    <EmbeddedResource Include="Code\UI\layer\mobile\need\layer.css" />
+    <EmbeddedResource Include="Code\UI\layer\skin\default\icon-ext.png" />
+    <EmbeddedResource Include="Code\UI\layer\skin\default\icon.png" />
+    <EmbeddedResource Include="Code\UI\layer\skin\default\layer.css" />
+    <EmbeddedResource Include="Code\UI\layer\skin\default\loading-0.gif" />
+    <EmbeddedResource Include="Code\UI\layer\skin\default\loading-1.gif" />
+    <EmbeddedResource Include="Code\UI\layer\skin\default\loading-2.gif" />
+    <EmbeddedResource Include="Code\index.html" />
+    <EmbeddedResource Include="Code\UI\Logistics.html" />
+    <EmbeddedResource Include="Code\UI\image\v2.png" />
+    <EmbeddedResource Include="Code\UI\Censusinfo.html" />
+    <EmbeddedResource Include="Code\UI\Softset.html" />
+    <EmbeddedResource Include="Code\UI\Product.html" />
+    <Content Include="Libs\NetDimension.NanUI.dll" />
+    <EmbeddedResource Include="Code\css\base.css" />
+    <EmbeddedResource Include="Code\css\font-awesome.min.css" />
+    <EmbeddedResource Include="Code\css\index.css" />
+    <EmbeddedResource Include="Code\css\skins\_all-skins.css" />
+    <EmbeddedResource Include="Code\fonts\fontawesome-webfont.svg" />
+    <EmbeddedResource Include="Code\fonts\glyphicons-halflings-regular.svg" />
+    <EmbeddedResource Include="Code\fonts\weathericons-regular-webfont.svg" />
+    <EmbeddedResource Include="Code\img\ajax-loader.gif" />
+    <EmbeddedResource Include="Code\img\avatar.png" />
+    <EmbeddedResource Include="Code\img\avatar04.png" />
+    <EmbeddedResource Include="Code\img\avatar2.png" />
+    <EmbeddedResource Include="Code\img\avatar3.png" />
+    <EmbeddedResource Include="Code\img\avatar5.png" />
+    <EmbeddedResource Include="Code\img\photo1.png" />
+    <EmbeddedResource Include="Code\img\photo2.png" />
+    <EmbeddedResource Include="Code\img\photo3.jpg" />
+    <EmbeddedResource Include="Code\img\photo4.jpg" />
+    <EmbeddedResource Include="Code\img\user1-128x128.jpg" />
+    <EmbeddedResource Include="Code\img\user2-160x160.jpg" />
+    <EmbeddedResource Include="Code\img\user3-128x128.jpg" />
+    <EmbeddedResource Include="Code\img\user4-128x128.jpg" />
+    <EmbeddedResource Include="Code\img\user5-128x128.jpg" />
+    <EmbeddedResource Include="Code\img\user6-128x128.jpg" />
+    <EmbeddedResource Include="Code\img\user7-128x128.jpg" />
+    <EmbeddedResource Include="Code\img\user8-128x128.jpg" />
+    <EmbeddedResource Include="Code\js\base.js" />
+    <EmbeddedResource Include="Code\js\bootstrap\css\bootstrap.min.css" />
+    <EmbeddedResource Include="Code\js\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <EmbeddedResource Include="Code\js\bootstrap\js\bootstrap.min.js" />
+    <EmbeddedResource Include="Code\js\charts\Chart.js" />
+    <EmbeddedResource Include="Code\js\charts\Chart.min.js" />
+    <EmbeddedResource Include="Code\js\index.js" />
+    <EmbeddedResource Include="Code\js\jquery\jQuery-2.2.0.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
