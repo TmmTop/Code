@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>数据库文档</title>
+    <link href="Css/ligerui-all.css" rel="stylesheet" type="text/css" />
+    <script src="JS/jquery-1.3.2.min.js" type="text/javascript"></script>
+    <script src="JS/base.js" type="text/javascript"></script>
+    <script src="JS/ligerGrid.js" type="text/javascript"></script> 
+    <script src="JS/DBData.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#dataGrid").ligerGrid({
+                columns: [
+                { display: '字段名', name: 'SQLColumnName', width: 180, align: 'left', isSort: false },
+                { display: '字段类型', name: 'SqlType', width: 120, align: 'left', isSort: false },
+                { display: '类型长度', name: 'TypeLength', width: 80, align: 'left', isSort: false },
+                { display: '默认值', name: 'SQLDefaultValue', width: 80, align: 'left' , isSort: false},
+                { display: '是否可空', name: 'IsNullAble', width: 80, align: 'left' , isSort: false},
+                { display: '是否主键', name: 'IsPrimarykey', width: 80, align: 'left' , isSort: false},
+                { display: '字段ID', name: 'ColumnId', width: 80, align: 'left' , isSort: false},
+                { display: '是否唯一', name: 'IsIdentity', width: 80, align: 'left' , isSort: false},
+                { display: '是否可计算', name: 'IsComputed', width: 80, align: 'left' , isSort: false},
+                { display: '精确度', name: 'Precision', width: 80, align: 'left' , isSort: false},
+                { display: '大小', name: 'Scale', width: 80, align: 'left' , isSort: false},
+                { display: '字段描述', name: 'ColumnDesc', width: 180, align: 'left' , isSort: false},
+                { display: '索引名', name: 'IndexName', width: 180, align: 'left' , isSort: false},
+                { display: '索引排序', name: 'IndexSort', width: 80, align: 'left' , isSort: false},
+                { display: '创建日期', name: 'CreateDate', width: 80, align: 'left' , isSort: false},
+                { display: '修改日期', name: 'ModifyDate', width: 80, align: 'left' , isSort: false}
+                ],
+                    data: DBData,
+                    height: '100%',
+                    groupColumnName: 'TableName', 
+                    groupColumnDisplay: '表名',
+                    usePager: false
+            });
+
+
+            $("#pageloading").hide(); 
+        });
+    </script>
+</head>
+<body style="padding:6px; overflow:hidden;">
+<div class="l-loading" style="display:block" id="pageloading"></div> 
+  <form>
+    <div id="dataGrid" style="margin:0; padding:0"></div>
+  </form>
+</body>
+</html>

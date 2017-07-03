@@ -1,0 +1,10 @@
+D:\Projects\WFA\Model\bin\Debug\Model.dll
+D:\Projects\WFA\Model\bin\Debug\Model.pdb
+D:\Projects\WFA\Model\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\WFA\Model\obj\Debug\Model.dll
+D:\Projects\WFA\Model\obj\Debug\Model.pdb
+E:\WebSite\WFA\Model\bin\Debug\Model.dll
+E:\WebSite\WFA\Model\bin\Debug\Model.pdb
+E:\WebSite\WFA\Model\obj\Debug\ResolveAssemblyReference.cache
+E:\WebSite\WFA\Model\obj\Debug\Model.dll
+E:\WebSite\WFA\Model\obj\Debug\Model.pdb

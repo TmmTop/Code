@@ -1,0 +1,417 @@
+﻿#*--------------全局变量---------------------*#
+#set($Prefix="Entity")			##类前缀名称
+#set($myClassName="${ClassName}Entity")##类名称
+#set($myCount=0)				##字段总数
+#set($myTopCol="")				##首字段（修改数据时没有主键的情况下将使用此变量）
+#set($myTopType="")				##首字段数据类型
+#set($myPK="")					##主键名称
+#set($myPKType="")				##主键数据类型
+#*------------------------------------------*#
+#foreach($ColumnInfo in $ColumnEntityList)
+	#set($myCount=$myCount+1) ##设置字段总数
+	#if($myCount==1)
+		#set($myTopCol=$ColumnInfo.SQLColumnName)
+		#set($myTopType=$ColumnInfo.NetTypeName)
+	#end
+	#if($ColumnInfo.IsPrimarykey=='True')
+		#set($myPK = $ColumnInfo.SQLColumnName ) 	##设置主键名称
+		#set($myPKType=$ColumnInfo.NetTypeName)		##设置主键数据类型
+	#end
+#end
+#*如果数据表中不存在主键------*#
+#if($myPK=="" )
+	#set($myPK=$myTopCol)
+	#set($myPKType=$myTopType)
+#end
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Data;
+using System.Data.SqlClient;
+using ${NameSpace}.Models;
+
+ namespace ${NameSpace}.DAL
+ {
+    public class  Service${ClassName}
+    {
+
+	/// <summary>
+    /// 获得$ClassName实体对象
+    /// </summary>
+    /// <param name="$myPK"></param>
+    /// <returns></returns>
+	public static $myClassName GetModel($myPKType $myPK)
+   	{	
+   		#region
+   		
+		try
+        {   		
+		string sqlStr = "select top 1 * from $TableName where $myPK = @$myPK";
+		SqlDataReader reader = DBHelper.GetReader(sqlStr, new SqlParameter("@$myPK", $myPK));
+			if (reader.Read())
+	       	{
+				$myClassName model = new $myClassName();
+			
+#foreach($ColumnInfo in $ColumnEntityList)
+#set($myType=$ColumnInfo.NetTypeName)  		##数据类型名称 
+#set($myColName=$ColumnInfo.SQLColumnName)	##列名称 
+
+				if(reader["$myColName"]!=null && reader["$myColName"].ToString().Trim()!="")
+				{
+					model.$myColName = ($myType)reader["$myColName"];
+				}
+#end
+				return model;
+			} 
+		}
+		catch (Exception ex)
+        {
+            string Remark = "类：ServiceSystemLog 方法：GetModel \n";
+            LogManage.WriteLog(LogManage.LogFile.Error, Remark + ex);
+        }
+		
+
+		return null;
+		#endregion
+    }
+    
+    /// <summary>
+    /// 获得全部实体集合
+    /// </summary>
+    /// <returns></returns>
+    public static IList<$myClassName> GetModel()
+    {
+        #region
+
+        string sqlStr = "select * from $TableName";
+        return GetModelBySql(sqlStr);
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// 根据sql语句查询获得$myClassName集合
+    /// </summary>
+    /// <returns></returns>
+    public static IList<$myClassName> GetModelBySql(string safeSql) 
+  	{
+  		#region
+  		
+  		List<$myClassName> list = new List<$myClassName>();
+		try
+        {
+          	 DataTable table = GetDataTable(safeSql);
+          	 $myClassName model=null;
+          	 foreach (DataRow row in table.Rows)
+             {
+             	model = new $myClassName();
+#foreach($ColumnInfo in $ColumnEntityList)
+#set($myType=$ColumnInfo.NetTypeName)  ##数据类型名称 
+#set($myColName=$ColumnInfo.SQLColumnName)##列名称 
+				if( row["$myColName"] !=null && row["$myColName"].ToString().Trim()!="")
+				{ 
+					model.$myColName = ($myType)row["$myColName"];
+				}
+#end
+				list.Add(model);
+             }
+        }
+       	catch (Exception ex)
+        {
+             	string Remark = "类：ServiceSystemLog 方法：GetModelBySql\n";
+                LogManage.WriteLog(LogManage.LogFile.Error, Remark + ex); 
+           
+        }
+		 return list;
+		 
+		 #endregion
+    }
+    
+    /// <summary>
+    /// 根据sql语句查询获得$myClassName集合
+    /// </summary>
+    public static IList<$myClassName> GetModelBySql(string safeSql,params SqlParameter[] values) 
+  	{
+  		#region
+  		
+  		List<$myClassName> list = new List<$myClassName>();
+		try
+        {
+          	 DataTable table = GetDataTable(safeSql,values );
+          	 $myClassName model=null;
+          	 foreach (DataRow row in table.Rows)
+             {
+             	model = new $myClassName();
+#foreach($ColumnInfo in $ColumnEntityList)
+#set($myType=$ColumnInfo.NetTypeName)  ##数据类型名称 
+#set($myColName=$ColumnInfo.SQLColumnName)##列名称 
+              if( row["$myColName"] !=null && row["$myColName"].ToString().Trim()!="")
+				{ 
+					model.$myColName = ($myType)row["$myColName"];
+				}
+#end
+				list.Add(model);
+             }
+        }
+       	catch (Exception ex)
+        {
+             string Remark = "类：ServiceSystemLog 方法：GetModelBySql +1\n";
+                LogManage.WriteLog(LogManage.LogFile.Error, Remark + ex); 
+           
+        }
+		 return list;
+		 
+		 #endregion
+    }
+    
+    /// <summary>
+    /// 修改$ClassName
+    /// <summary>
+    public static int Modify($myClassName model)
+    {
+    	#region
+    	int ret = 0;
+    	try
+        {
+    	string sqlStr ="UPDATE $TableName SET " + 
+#foreach($ColumnInfo in $ColumnEntityList)
+#set($myType=$ColumnInfo.NetTypeName)  ##数据类型名称 
+#set($myColName=$ColumnInfo.SQLColumnName)##列名称 
+#if($ColumnInfo.IsPrimarykey!='True')
+	#if($ColumnInfo.ColumnId==$myCount)
+		"$myColName = @$myColName " +
+	#else
+		"$myColName = @$myColName,"+
+	#end
+#end	
+#end
+		"WHERE $myPK = @$myPK";	
+		 SqlParameter[] para = new SqlParameter[]
+		 {
+#foreach($ColumnInfo in $ColumnEntityList)
+#set($myType=$ColumnInfo.NetTypeName)  ##数据类型名称 
+#set($myColName=$ColumnInfo.SQLColumnName)##列名称
+#if($ColumnInfo.ColumnId==$myCount)
+			new SqlParameter("@$myColName", model.$myColName)
+#else
+			new SqlParameter("@$myColName", model.$myColName),
+#end
+#end
+		 };
+		 ret = DBHelper.ExecuteCommand(sqlStr, para);
+		 }
+        catch (Exception ex)
+        {
+
+            string Remark = "类：SystemLogEntity  方法：Modify \n";
+            LogManage.WriteLog(LogManage.LogFile.Error, Remark + ex); 
+        }
+        return ret;
+		#endregion
+		
+    }
+    
+    /// <summary>
+    /// 根据$myPK删除数据
+    /// </summary>
+    /// <returns></returns>
+    public static int Delete(int $myPK )
+    {
+    	#region
+    	int ret = 0;
+        try
+        {
+    	string sqlStr = "DELETE $TableName WHERE $myPK = @$myPK";
+    	ret= DBHelper.ExecuteCommand(sqlStr, new SqlParameter("@$myPK", $myPK) );
+    	}
+    	catch (Exception ex)
+        {
+
+            string Remark = "类：SystemLogEntity  方法：Delete 参数："+ $myPK +" \n";
+            LogManage.WriteLog(LogManage.LogFile.Error, Remark + ex); 
+        }
+        return ret;
+    	#endregion
+    }
+    
+    /// <summary>
+    /// 向$TableName表中插入一条数据
+    /// </summary>
+    /// <returns></returns>
+    public static $myClassName Insert($myClassName model)
+    {
+    	#region
+    	
+    	 string sqlStr ="INSERT $TableName(" +
+#foreach($ColumnInfo in $ColumnEntityList)
+#set($myType=$ColumnInfo.NetTypeName)  ##数据类型名称 
+#set($myColName=$ColumnInfo.SQLColumnName)##列名称 
+#if($ColumnInfo.IsPrimarykey!='True' && $ColumnInfo.ColumnId==$myCount)
+			"$myColName" + 
+#elseif ($ColumnInfo.IsPrimarykey!='True') 
+			"$myColName," +
+#end
+#end
+    		") VALUES(" + 
+#foreach($ColumnInfo in $ColumnEntityList)
+#set($myType=$ColumnInfo.NetTypeName)  ##数据类型名称 
+#set($myColName=$ColumnInfo.SQLColumnName)##列名称 
+#if($ColumnInfo.IsPrimarykey!='True' && $ColumnInfo.ColumnId==$myCount)
+			"@$myColName" + 
+#elseif ($ColumnInfo.IsPrimarykey!='True') 
+			"@$myColName," +
+#end
+#end
+    		"); SELECT @@IDENTITY";
+    	 
+    	SqlParameter[] para = new SqlParameter[]
+		{
+#foreach($ColumnInfo in $ColumnEntityList)
+#set($myType=$ColumnInfo.NetTypeName)  ##数据类型名称 
+#set($myColName=$ColumnInfo.SQLColumnName)##列名称
+#if($ColumnInfo.ColumnId==$myCount && $ColumnInfo.IsPrimarykey!='True' )
+			new SqlParameter("@$myColName", model.$myColName)
+#else
+			new SqlParameter("@$myColName", model.$myColName),
+#end
+#end
+		};
+		
+		try
+        {
+            object ret = DBHelper.GetScalar(sqlStr, para);
+            int newId = -1;
+            if (DBHelper.IsNum(ret.ToString()))
+            {
+                newId = Convert.ToInt32(ret);
+            }
+            return GetModel(newId);
+        }
+        catch (Exception ex)
+        {
+            string Remark = "类：SystemLogEntity  方法：Insert\n";
+            LogManage.WriteLog(LogManage.LogFile.Error, Remark+ ex); 
+        }
+
+        return null;
+    	 
+    	#endregion 
+    	 
+    }
+    
+    
+		/// <summary>
+    /// 获得DataSet
+    /// </summary>
+    public static DataSet GetDataSet(string safeSql,params SqlParameter[] values)
+    {
+        try
+        {
+            return DBHelper.GetDataSet(safeSql,values);
+        }
+        catch (Exception ex)
+        {
+            string Remark = "类：Service${ClassName} 方法：GetDataSet +1\n";
+            LogManage.WriteLog(LogManage.LogFile.Error, Remark + ex); 
+
+        }
+        return null;
+    }
+    
+    
+    /// <summary>
+    /// 获得DataSet
+    /// </summary>
+    public static DataSet GetDataSet(string safeSql)
+    {
+        try
+        {
+            return DBHelper.GetDataSet(safeSql);
+        }
+        catch (Exception ex)
+        {
+            string Remark = "类：Service${ClassName} 方法：GetDataSet\n";
+            LogManage.WriteLog(LogManage.LogFile.Error, Remark + ex); 
+
+        }
+        return null;
+    }
+    
+    
+    
+
+    /// <summary>
+    /// 获得DataTable
+    /// </summary>
+    public static DataTable GetDataTable(string safeSql,params SqlParameter[] values)
+    {
+        DataTable dt = new DataTable();
+        try
+        {
+            DataSet ds = DBHelper.GetDataSet(safeSql,values);
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                dt = DBHelper.GetDataSet(safeSql).Tables[0];
+            }
+        }
+        catch (Exception ex)
+        {
+
+            string Remark = "类：Service${ClassName} 方法：GetDataTable +1 \n";
+            LogManage.WriteLog(LogManage.LogFile.Error, Remark + ex); 
+        }
+        return dt;
+    }
+
+    /// <summary>
+    /// 获得DataTable
+    /// </summary>
+    public static DataTable GetDataTable(string safeSql)
+    {
+        DataTable dt = new DataTable() ;
+        try
+        {
+            DataSet ds = DBHelper.GetDataSet(safeSql);
+           
+            if (ds !=null && ds.Tables.Count>0  )
+            {
+                dt= DBHelper.GetDataSet(safeSql).Tables[0];
+            }
+        }
+        catch (Exception ex)
+        {
+            string Remark = "类：Service${ClassName} 方法：GetDataTable 参数：" + safeSql + " \n";
+            LogManage.WriteLog(LogManage.LogFile.Error, Remark + ex); 
+          
+        }
+        return dt;
+    } 
+
+	/// <summary>
+    /// 获得Json字符串
+    /// </summary>
+    /// <returns></returns>
+    public static String GetJsonStr() 
+    {
+        string sqlStr = "select * from SystemLog";
+        DataSet ds = GetDataSet(sqlStr);
+        if (ds != null)
+        {
+            return JsonHelper.Dataset2Json(ds);
+        }
+        else 
+        {
+            return "DataSet is Null";
+        } 
+    }
+     
+    
+    }
+    
+    
+}
+    
+ 
+
+

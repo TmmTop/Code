@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "$NameSpace$", "$NameSpace$\$NameSpace$.csproj", "{$GuidGenerator2010.WebUIProj$}"
+	ProjectSection(ProjectDependencies) = postProject
+		{$GuidUtilityProj$} = {$GuidUtilityProj$}
+		{$GuidBLLProj$} = {$GuidBLLProj$}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{$GuidDALProj$}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{$GuidBLLProj$}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utility", "Utility\Utility.csproj", "{$GuidUtilityProj$}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{$GuidModelProj$}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{$GuidGenerator2010.WebUIProj$}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{$GuidGenerator2010.WebUIProj$}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{$GuidGenerator2010.WebUIProj$}.Release|Any CPU.ActiveCfg = Release|Any CPU
+
+		{$GuidDALProj$}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{$GuidDALProj$}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{$GuidDALProj$}.Release|Any CPU.ActiveCfg = Release|Any CPU
+
+		{$GuidBLLProj$}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{$GuidBLLProj$}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{$GuidBLLProj$}.Release|Any CPU.ActiveCfg = Release|Any CPU
+
+		{$GuidUtilityProj$}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{$GuidUtilityProj$}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{$GuidUtilityProj$}.Release|Any CPU.ActiveCfg = Release|Any CPU
+
+		{$GuidModelProj$}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{$GuidModelProj$}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{$GuidModelProj$}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

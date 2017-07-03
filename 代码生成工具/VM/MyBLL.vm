@@ -1,0 +1,257 @@
+﻿#*--------------全局变量---------------------*#
+#set($Prefix="Entity")	##类前缀
+#set($myClassName="${ClassName}")##类名称
+#set($myCount=0)				##字段总数
+#set($myTopCol="")				##首字段（修改数据时没有主键的情况下将使用此变量）
+#set($myTopType="")				##首字段数据类型
+#set($myPK="")					##主键名称
+#set($myPKType="")				##主键数据类型
+#*------------------------------------------*#
+#foreach($ColumnInfo in $ColumnEntityList)
+	#set($myCount=$myCount+1) ##设置字段总数
+	#if($myCount==1)
+		#set($myTopCol=$ColumnInfo.SQLColumnName)
+		#set($myTopType=$ColumnInfo.NetTypeName)
+	#end
+	#if($ColumnInfo.IsPrimarykey=='True')
+		#set($myPK = $ColumnInfo.SQLColumnName ) 	##设置主键名称
+		#set($myPKType=$ColumnInfo.NetTypeName)		##设置主键数据类型
+	#end
+#end
+#*如果数据表中不存在主键------*#
+#if($myPKType=="" && $myPK=="" )
+	#set($myPK=$myTopCol)
+	#set($myPKType=$myTopType)
+#end
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Data;
+using System.Data.SqlClient; 
+using ${NameSpace}.Models;
+using ${NameSpace}.DAL;
+
+namespace ${NameSpace}.BLL
+{
+    public class Manage$ClassName
+    {
+
+	/// <summary>
+    /// 获得$ClassName实体对象
+    /// </summary>
+	public static ${myClassName}${Prefix} GetModel($myPKType $myPK)
+   	{	
+		return Service${myClassName}.GetModel($myPK);
+    }
+    
+    /// <summary>
+    /// 获得全部实体集合
+    /// </summary>
+    /// <returns></returns>
+    public static IList<${myClassName}${Prefix}> GetModel()
+    {
+        return Service${myClassName}.GetModel();
+    }
+    
+    /// <summary>
+    /// 根据sql语句查询获得myClassName集合
+    /// </summary>
+    public static IList<${myClassName}${Prefix}> GetModelBySql(string safeSql) 
+  	{
+  		 return Service${myClassName}.GetModelBySql(safeSql);
+    }
+    
+    
+    /// <summary>
+    /// 根据sql语句查询获得$myClassName集合
+    /// </summary>
+    public static IList<${myClassName}${Prefix}> GetModelBySql(string safeSql,params SqlParameter[] values) 
+  	{
+  		return Service${myClassName}.GetModelBySql(safeSql,values);
+    }
+    
+    /// <summary>
+    /// 修改$ClassName
+    /// <summary>
+    public static int Modify(${myClassName}${Prefix} model)
+    {
+		return Service${myClassName}.Modify(model);
+    }
+    
+    /// <summary>
+    /// 根据$myPK删除数据
+    /// </summary>
+    public static int Delete(int $myPK )
+    {
+    	return Service${myClassName}.Delete($myPK);
+    }
+    
+    /// <summary>
+    /// 向$TableName表中插入一条数据
+    /// </summary>
+    public static ${myClassName}${Prefix} Insert(${myClassName}${Prefix} model)
+    {
+    	 return Service${myClassName}.Insert(model);
+    }
+    
+    
+ 	/// <summary>
+    /// 获得DataSet
+    /// </summary>
+    public static DataSet GetDataSet(string safeSql)
+    {
+        return Service${myClassName}.GetDataSet(safeSql);
+    }
+    
+     
+ 	/// <summary>
+    /// 获得DataSet
+    /// </summary>
+    public static DataSet GetDataSet(string safeSql, params SqlParameter[] values)
+    {
+        return Service${myClassName}.GetDataSet(safeSql,values);
+    }
+
+    /// <summary>
+    /// 获得DataTable
+    /// </summary>
+    public static DataTable GetDataTable(string safeSql, params SqlParameter[] values)
+    {
+        return Service${myClassName}.GetDataTable(safeSql, values);
+    }
+
+    /// <summary>
+    /// 获得DataTable
+    /// </summary>
+    public static DataTable GetDataTable(string safeSql)
+    {
+        return Service${myClassName}.GetDataTable(safeSql);
+    }
+
+    /// <summary>
+    /// 获得Json字符串
+    /// </summary>
+    /// <returns></returns>
+    public static String GetJsonStr()
+    {
+        return Service${myClassName}.GetJsonStr();
+    }
+    
+    
+    
+    
+   }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

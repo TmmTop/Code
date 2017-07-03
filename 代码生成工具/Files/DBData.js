@@ -1,0 +1,5 @@
+﻿var DBData = {
+    Rows: [
+    $ColoumsInfo$
+    ]
+};

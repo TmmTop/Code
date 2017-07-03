@@ -1,0 +1,14 @@
+D:\Projects\WFA\Utility\bin\Debug\Utility.dll
+D:\Projects\WFA\Utility\bin\Debug\Utility.pdb
+D:\Projects\WFA\Utility\bin\Debug\Model.dll
+D:\Projects\WFA\Utility\bin\Debug\Model.pdb
+D:\Projects\WFA\Utility\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\WFA\Utility\obj\Debug\Utility.dll
+D:\Projects\WFA\Utility\obj\Debug\Utility.pdb
+E:\WebSite\WFA\Utility\bin\Debug\Utility.dll
+E:\WebSite\WFA\Utility\bin\Debug\Utility.pdb
+E:\WebSite\WFA\Utility\bin\Debug\Model.dll
+E:\WebSite\WFA\Utility\bin\Debug\Model.pdb
+E:\WebSite\WFA\Utility\obj\Debug\ResolveAssemblyReference.cache
+E:\WebSite\WFA\Utility\obj\Debug\Utility.dll
+E:\WebSite\WFA\Utility\obj\Debug\Utility.pdb

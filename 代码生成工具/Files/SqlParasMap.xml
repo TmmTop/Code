@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Types>
+	<Type>
+		<System>SmallInt</System>
+		<SqlDbType>SmallInt</SqlDbType>
+		<Filter>-1</Filter>
+	</Type>
+	<Type>
+	<System>Int32</System>
+	<SqlDbType>Int</SqlDbType>
+	<Filter>-1</Filter>
+	</Type>
+  <Type>
+    <System>Int64</System>
+    <SqlDbType>BigInt</SqlDbType>
+    <Filter>-1</Filter>
+  </Type>
+  <Type>
+    <System>decimal</System>
+    <SqlDbType>decimal(18,2)</SqlDbType>
+    <Filter>0.00</Filter>
+  </Type>
+	<Type>
+		<System>String</System>
+		<SqlDbType>Varchar</SqlDbType>
+		<Filter>Null</Filter>
+	</Type>
+	<Type>
+		<System>DateTime</System>
+		<SqlDbType>DateTime</SqlDbType>
+		<Filter>1/1/0001 12:00:00 AM</Filter>
+	</Type>
+	<Type>
+		<System>Nullable`1</System>
+		<SqlDbType>DateTime</SqlDbType>
+		<Filter>Null</Filter>
+	</Type>
+	<Type>
+		<System>Boolean</System>
+		<SqlDbType>Bit</SqlDbType>
+		<Filter>Null</Filter>
+	</Type>
+	<Type>
+		<System>Guid</System>
+		<SqlDbType>UniqueIdentifier</SqlDbType>
+		<Filter>00000000-0000-0000-0000-000000000000</Filter>
+	</Type>
+	<Type>
+		<System>Byte[]</System>
+		<SqlDbType>image</SqlDbType>
+		<Filter>Null</Filter>
+	</Type>
+</Types>

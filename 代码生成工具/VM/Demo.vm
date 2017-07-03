@@ -1,0 +1,16 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace $NameSpace
+{
+    public class $ClassName
+    {
+#foreach($ColumnInfo in $ColumnEntityList)
+#if($ColumnInfo.IsIdentity!='True')
+        public $ColumnInfo.NetTypeName $ColumnInfo.SQLColumnName {get; set;}
+#end
+#end
+    }
+}

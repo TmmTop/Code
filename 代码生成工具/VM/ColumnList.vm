@@ -1,0 +1,5 @@
+﻿#foreach($ColumnInfo in $ColumnEntityList)
+        $ColumnInfo.NetColumnName,
+#end
+
+

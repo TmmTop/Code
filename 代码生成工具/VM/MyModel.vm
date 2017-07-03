@@ -1,0 +1,139 @@
+﻿#*--------------全局变量---------------------*#
+#set($myClassName="${ClassName}")##类名称
+#set($myCount=0)				##字段总数
+#set($myTopCol="")				##首字段（修改数据时没有主键的情况下将使用此变量）
+#set($myTopType="")				##首字段数据类型
+#set($myPK="")					##主键名称
+#set($myPKType="")				##主键数据类型
+#*------------------------------------------*#
+#foreach($ColumnInfo in $ColumnEntityList)
+	#set($myCount=$myCount+1) ##设置字段总数
+	#if($myCount==1)
+		#set($myTopCol=$ColumnInfo.SQLColumnName)
+		#set($myTopType=$ColumnInfo.NetTypeName)
+	#end
+	#if($ColumnInfo.IsPrimarykey=='True')
+		#set($myPK = $ColumnInfo.SQLColumnName ) 	##设置主键名称
+		#set($myPKType=$ColumnInfo.NetTypeName)		##设置主键数据类型
+	#end
+#end
+#*如果数据表中不存在主键------*#
+#if($myPKType=="" && $myPK=="" )
+	#set($myPK=$myTopCol)
+	#set($myPKType=$myTopType)
+#end
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace ${NameSpace}.Model
+{
+	[Serializable()]
+    public class ${ClassName}
+    {
+    
+    
+#foreach($ColumnInfo in $ColumnEntityList)
+#set($myType=$ColumnInfo.NetTypeName)  		##数据类型名称 
+#set($myColName=$ColumnInfo.SQLColumnName)	##列名称 
+
+		/// <summary> 
+        /// $ColumnInfo.ColumnDesc 
+        /// </summary> 
+        public $myType $myColName {get; set;}
+#end
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
