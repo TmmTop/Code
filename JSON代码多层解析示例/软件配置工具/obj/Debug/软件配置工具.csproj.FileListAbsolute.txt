@@ -1,0 +1,10 @@
+C:\Users\49091\Desktop\软件配置工具\软件配置工具\bin\Debug\软件配置工具.exe.config
+C:\Users\49091\Desktop\软件配置工具\软件配置工具\bin\Debug\软件配置工具.exe
+C:\Users\49091\Desktop\软件配置工具\软件配置工具\bin\Debug\软件配置工具.pdb
+C:\Users\49091\Desktop\软件配置工具\软件配置工具\obj\Debug\软件配置工具.Form1.resources
+C:\Users\49091\Desktop\软件配置工具\软件配置工具\obj\Debug\软件配置工具.Properties.Resources.resources
+C:\Users\49091\Desktop\软件配置工具\软件配置工具\obj\Debug\软件配置工具.csproj.GenerateResource.Cache
+C:\Users\49091\Desktop\软件配置工具\软件配置工具\obj\Debug\软件配置工具.exe
+C:\Users\49091\Desktop\软件配置工具\软件配置工具\obj\Debug\软件配置工具.pdb
+C:\Users\49091\Desktop\软件配置工具\软件配置工具\bin\Debug\config.json
+C:\Users\49091\Desktop\软件配置工具\软件配置工具\bin\Debug\Newtonsoft.Json.Net20.dll
