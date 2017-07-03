@@ -1,0 +1,9 @@
+G:\工具\WEBAPI\WebAPI\src\WebAPI\bin\Debug\netcoreapp1.0\WebAPI.deps.json
+G:\工具\WEBAPI\WebAPI\src\WebAPI\bin\Debug\netcoreapp1.0\WebAPI.runtimeconfig.json
+G:\工具\WEBAPI\WebAPI\src\WebAPI\bin\Debug\netcoreapp1.0\WebAPI.runtimeconfig.dev.json
+G:\工具\WEBAPI\WebAPI\src\WebAPI\bin\Debug\netcoreapp1.0\WebAPI.dll
+G:\工具\WEBAPI\WebAPI\src\WebAPI\bin\Debug\netcoreapp1.0\WebAPI.pdb
+G:\工具\WEBAPI\WebAPI\src\WebAPI\obj\Debug\netcoreapp1.0\WebAPI.csprojResolveAssemblyReference.cache
+G:\工具\WEBAPI\WebAPI\src\WebAPI\obj\Debug\netcoreapp1.0\WebAPI.AssemblyInfo.cs
+G:\工具\WEBAPI\WebAPI\src\WebAPI\obj\Debug\netcoreapp1.0\WebAPI.dll
+G:\工具\WEBAPI\WebAPI\src\WebAPI\obj\Debug\netcoreapp1.0\WebAPI.pdb
