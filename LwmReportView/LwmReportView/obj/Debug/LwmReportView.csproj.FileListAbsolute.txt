@@ -1,0 +1,14 @@
+C:\Users\49091\Desktop\LwmReportView\LwmReportView\bin\Debug\LwmReportView.dll
+C:\Users\49091\Desktop\LwmReportView\LwmReportView\bin\Debug\LwmReportView.pdb
+C:\Users\49091\Desktop\LwmReportView\LwmReportView\bin\Debug\ABCpdf.dll
+C:\Users\49091\Desktop\LwmReportView\LwmReportView\bin\Debug\ClosedXML.dll
+C:\Users\49091\Desktop\LwmReportView\LwmReportView\bin\Debug\DMSkin.dll
+C:\Users\49091\Desktop\LwmReportView\LwmReportView\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\49091\Desktop\LwmReportView\LwmReportView\bin\Debug\DoddleReport.AbcPdf.dll
+C:\Users\49091\Desktop\LwmReportView\LwmReportView\bin\Debug\DoddleReport.dll
+C:\Users\49091\Desktop\LwmReportView\LwmReportView\bin\Debug\DoddleReport.OpenXml.dll
+C:\Users\49091\Desktop\LwmReportView\LwmReportView\obj\Debug\LwmReportView.Properties.Resources.resources
+C:\Users\49091\Desktop\LwmReportView\LwmReportView\obj\Debug\LwmReportView.View.resources
+C:\Users\49091\Desktop\LwmReportView\LwmReportView\obj\Debug\LwmReportView.csproj.GenerateResource.Cache
+C:\Users\49091\Desktop\LwmReportView\LwmReportView\obj\Debug\LwmReportView.dll
+C:\Users\49091\Desktop\LwmReportView\LwmReportView\obj\Debug\LwmReportView.pdb
