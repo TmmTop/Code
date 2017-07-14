@@ -1,0 +1,52 @@
+   if (string.IsNullOrEmpty(txtFilePath.Text))
+            {
+                MessageBox.Show("请选择Excel!");
+            }
+            else
+            {//读取相应的表名的Excel文件中数据到当前DataGridview中显示?
+                string strConn = string.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties='Excel 12.0;HDR=Yes;'", txtFilePath.Text.Trim());
+                if ((System.IO.Path.GetExtension(txtFilePath.Text.Trim())).ToLower() == ".xls" && (System.IO.Path.GetExtension(txtFilePath.Text.Trim())).ToLower() == ".xlsx")
+                {
+                    strConn = string.Format("Provider = Microsoft.ACE.OLEDB.12.0; Data Source = {0}; Extended Properties ='Excel 8.0;HDR=Yes;IMEX=1;'", txtFilePath.Text.Trim());
+                }
+                string sTableName = cmbTableName.Text.Trim();
+                try
+                {
+                    OleDbDataAdapter da = new OleDbDataAdapter("select * from [" + sTableName + "]", strConn);
+                    DataSet oldDS = new DataSet();
+                    da.Fill(oldDS);
+                    DataTable dt = new DataTable();
+                    dt = oldDS.Tables[0];
+                    //移除空白行
+                    List<DataRow> removelist = new List<DataRow>();
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        bool rowdataisnull = true;
+                        for (int j = 0; j < dt.Columns.Count; j++)
+                        {
+
+                            if (!string.IsNullOrEmpty(dt.Rows[i][j].ToString().Trim()))
+                            {
+
+                                rowdataisnull = false;
+                            }
+
+                        }
+                        if (rowdataisnull)
+                        {
+                            removelist.Add(dt.Rows[i]);
+                        }
+
+                    }
+                    for (int i = 0; i < removelist.Count; i++)
+                    {
+                        dt.Rows.Remove(removelist[i]);
+                    }
+                    //移除空白行
+                    this.dgv.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }

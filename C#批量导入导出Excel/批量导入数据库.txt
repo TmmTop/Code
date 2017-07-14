@@ -1,0 +1,42 @@
+ if (txtFilePath.Text.Trim() != "" && cmbTableName.Text.Trim() != "")
+            {
+                int nums = dgv.Rows.Count;
+                if (nums < 0) return;
+                if (cmbTableName.Text == "气密$")
+                {
+                    string 时间, 流水号, 设定泄漏, 实际泄漏, 设定扭力, 实际扭力, 设定压力, 实际压力, 检测时间, 旋转速度, 实际时间, 产品状态;
+                    for (int i = 0; i < dgv.Rows.Count; i++)
+                    {
+
+                        时间 = this.dgv.Rows[i].Cells[0].Value.ToString();
+                        流水号 = this.dgv.Rows[i].Cells[1].Value.ToString();
+                        设定泄漏 = this.dgv.Rows[i].Cells[2].Value.ToString();
+                        实际泄漏 = this.dgv.Rows[i].Cells[3].Value.ToString();
+                        设定扭力 = this.dgv.Rows[i].Cells[4].Value.ToString();
+                        实际扭力 = this.dgv.Rows[i].Cells[5].Value.ToString();
+                        设定压力 = this.dgv.Rows[i].Cells[6].Value.ToString();
+                        实际压力 = this.dgv.Rows[i].Cells[7].Value.ToString();
+                        检测时间 = this.dgv.Rows[i].Cells[8].Value.ToString();
+                        旋转速度 = this.dgv.Rows[i].Cells[9].Value.ToString();
+                        实际时间 = this.dgv.Rows[i].Cells[10].Value.ToString();
+                        产品状态 = this.dgv.Rows[i].Cells[11].Value.ToString();
+                        try
+                        {
+                            string StrSql = string.Format("Insert into 气密 values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}')",
+                          时间, 流水号, 设定泄漏, 实际泄漏, 设定扭力, 实际扭力, 设定压力, 实际压力, 检测时间, 旋转速度, 实际时间, 产品状态);
+                            int result = SQLDBTool.ExecuteSql(StrSql);
+                            if (result > 0)
+                            {
+                                txtLog.AppendText("气密数据导入第" + i + "条记录成功！\n");
+                            }
+                            else
+                            {
+                                txtLog.AppendText("气密数据导入第" + i + "条记录失败！\n");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            txtLog.AppendText("气密数据导入失败！ Error:" + ex.Message + "\n");
+                        }
+                    }
+                }

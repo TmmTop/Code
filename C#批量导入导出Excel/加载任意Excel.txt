@@ -1,0 +1,50 @@
+ try
+            {
+                //获取Excel文件路径和名称??
+                OpenFileDialog odXls = new OpenFileDialog();
+                //指定相应的打开文档的目录??AppDomain.CurrentDomain.BaseDirectory定位到Debug目录，再根据实际情况进行目录调整??
+                string folderPath = AppDomain.CurrentDomain.BaseDirectory + @"databackup\";
+                odXls.InitialDirectory = folderPath;
+                //?设置文件格式????
+                odXls.Filter = "Excel?files?office2003(*.xls)|*.xls|Excel?office2010(*.xlsx)|*.xlsx";
+                //openFileDialog1.Filter?=?"图片文件(*.jpg)|*.jpg|(*.JPEG)|*.jpeg|(*.PNG)|*.png";??
+                odXls.FilterIndex = 1;
+                odXls.RestoreDirectory = true;
+                if (odXls.ShowDialog() == DialogResult.OK)
+                {
+                    this.txtFilePath.Text = odXls.FileName;
+                    this.txtFilePath.ReadOnly = true;
+
+                    string sConnString = string.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties='Excel 12.0;HDR=Yes;'", odXls.FileName);
+                    if ((System.IO.Path.GetExtension(txtFilePath.Text.Trim())).ToLower() == ".xls")
+                    {
+                        sConnString = string.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties='Excel 8.0;HDR=Yes;IMEX=1;'", odXls.FileName);
+                    }
+                    using (OleDbConnection oleDbConn = new OleDbConnection(sConnString))
+                    {
+                        oleDbConn.Open();
+                        DataTable dt = oleDbConn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, new object[] { null, null, null, "TABLE" });
+                        //判断是否cmb中已有数据，有则清空??
+                        if (cmbTableName.Items.Count > 0)
+                        {
+                            cmbTableName.DataSource = null;
+                            cmbTableName.Items.Clear();
+                        }
+                        //遍历dt的rows得到所有的TABLE_NAME，并Add到cmb中??
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            cmbTableName.Items.Add((String)dr["TABLE_NAME"]);
+                        }
+                        if (cmbTableName.Items.Count > 0)
+                        {
+                            cmbTableName.SelectedIndex = 0;
+                        }
+                        //加载Excel文件数据按钮??
+                        this.btnLoad.Enabled = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }

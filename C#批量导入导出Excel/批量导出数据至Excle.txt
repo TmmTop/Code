@@ -1,0 +1,83 @@
+ public void ExportExcel(string fileName, DataTable table)
+        {
+            if (table.Rows.Count > 0)
+            {
+                string saveFileName = "";
+                //bool fileSaved = false;
+                SaveFileDialog saveDialog = new SaveFileDialog();
+                saveDialog.DefaultExt = "xls";
+                saveDialog.Filter = "Excel文件|*.xls";
+                saveDialog.FileName = fileName;
+                saveDialog.ShowDialog();
+                saveFileName = saveDialog.FileName;
+                if (saveFileName.IndexOf(":") < 0) return; //被点了取消 
+                Excel.Application xlApp = new Excel.Application();
+                if (xlApp == null)
+                {
+                    MessageBox.Show("无法创建Excel对象，可能您的机子未安装Excel");
+                    return;
+                }
+
+                int FormatNum;
+                Excel.Application Application = new Excel.Application();
+                Excel.Workbooks workbooks = xlApp.Workbooks;
+                Excel.Workbook workbook = workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
+                Excel.Worksheet worksheet = (Excel.Worksheet)workbook.Worksheets[1];//取得sheet1
+                string Version = Application.Version;//获取你使用的excel 的版本号
+                if (Convert.ToDouble(Version) < 12)//You use Excel 97-2003
+                {
+                    FormatNum = -4143;
+                }
+                else//you use excel 2007 or later
+                {
+                    FormatNum = 56;
+                }
+                //写入标题
+                for (int i = 0; i < table.Columns.Count; i++)
+                {
+                    worksheet.Cells[1, i + 1] = table.Columns[i].ColumnName;
+                }
+                //写入数值
+                for (int r = 0; r < table.Rows.Count; r++)
+                {
+                    for (int i = 0; i < table.Columns.Count; i++)
+                    {
+                        label1.Text = "正在导出第" + r + "行" + i + "列数据！";
+                        worksheet.Cells[r + 2, 1].Style.NumberFormatLocal = "@";//导出所有单元格格式为 字符
+                        //worksheet.Cells[r + 2, 5].Style.NamedRange.Sort = "";//根据第5列数值排序（相同数据排序）
+                        worksheet.Cells[r + 2, i + 1] = table.Rows[r][i].ToString();
+                    }
+                }
+                label1.Text = "";
+                //table.DefaultView.Sort = "供应商地址 ASC";//按供应商名称排序
+                worksheet.Columns.EntireColumn.AutoFit();//列宽自适应
+                if (saveFileName != "")
+                {
+                    try
+                    {
+                        workbook.Saved = true;
+                        workbook.SaveAs(saveFileName, FormatNum);
+                        //fileSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        //fileSaved = false;
+                        MessageBox.Show("导出文件时出错,文件可能正被打开！\n" + ex.Message);
+                    }
+
+                }
+                //else
+                //{
+                //    fileSaved = false;
+                //}
+                xlApp.Quit();
+                GC.Collect();//强行销毁 
+                // if (fileSaved && System.IO.File.Exists(saveFileName)) System.Diagnostics.Process.Start(saveFileName); //打开EXCEL
+                MessageBox.Show(fileName + "的简明资料保存成功", "提示", MessageBoxButtons.OK);
+            }
+            else
+            {
+                MessageBox.Show("报表为空,无表格需要导出", "提示", MessageBoxButtons.OK);
+            }
+
+        }
