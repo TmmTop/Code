@@ -1,0 +1,18 @@
+http://blog.csdn.net/dandanzmc/article/details/42012429
+去Nuget注册账号 
+生成API 复制API的key值
+下载NuGet.exe
+配置NuGet环境变量（Path链接到有Nuget.exe的根目录即可）
+设置本地API Key
+{
+nuget setApiKey apikey值 
+}
+
+创建自己类库
+cmd运行以下命令
+nuget spec   生成上传配置文件
+nuget pack LwmReportView.csproj  打包类库需要的所有文件
+nuget push LwmReportView.1.0.0.0.nupkg  上传
+
+
+过5分钟 在VS包管理器里搜索即可
