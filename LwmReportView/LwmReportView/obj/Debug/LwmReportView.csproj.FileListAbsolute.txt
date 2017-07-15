@@ -12,3 +12,17 @@ C:\Users\49091\Desktop\LwmReportView\LwmReportView\obj\Debug\LwmReportView.View.
 C:\Users\49091\Desktop\LwmReportView\LwmReportView\obj\Debug\LwmReportView.csproj.GenerateResource.Cache
 C:\Users\49091\Desktop\LwmReportView\LwmReportView\obj\Debug\LwmReportView.dll
 C:\Users\49091\Desktop\LwmReportView\LwmReportView\obj\Debug\LwmReportView.pdb
+F:\GitHub\Git\GitCode\LwmReportView\LwmReportView\bin\Debug\LwmReportView.dll
+F:\GitHub\Git\GitCode\LwmReportView\LwmReportView\bin\Debug\LwmReportView.pdb
+F:\GitHub\Git\GitCode\LwmReportView\LwmReportView\bin\Debug\ABCpdf.dll
+F:\GitHub\Git\GitCode\LwmReportView\LwmReportView\bin\Debug\ClosedXML.dll
+F:\GitHub\Git\GitCode\LwmReportView\LwmReportView\bin\Debug\DocumentFormat.OpenXml.dll
+F:\GitHub\Git\GitCode\LwmReportView\LwmReportView\bin\Debug\DoddleReport.AbcPdf.dll
+F:\GitHub\Git\GitCode\LwmReportView\LwmReportView\bin\Debug\DoddleReport.dll
+F:\GitHub\Git\GitCode\LwmReportView\LwmReportView\bin\Debug\DoddleReport.OpenXml.dll
+F:\GitHub\Git\GitCode\LwmReportView\LwmReportView\obj\Debug\LwmReportView.Properties.Resources.resources
+F:\GitHub\Git\GitCode\LwmReportView\LwmReportView\obj\Debug\LwmReportView.View.resources
+F:\GitHub\Git\GitCode\LwmReportView\LwmReportView\obj\Debug\LwmReportView.csproj.GenerateResource.Cache
+F:\GitHub\Git\GitCode\LwmReportView\LwmReportView\obj\Debug\LwmReportView.dll
+F:\GitHub\Git\GitCode\LwmReportView\LwmReportView\obj\Debug\LwmReportView.pdb
+F:\GitHub\Git\GitCode\LwmReportView\LwmReportView\obj\Debug\LwmReportView.csprojResolveAssemblyReference.cache

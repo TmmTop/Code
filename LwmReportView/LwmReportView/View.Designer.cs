@@ -52,7 +52,7 @@
             this.CupBox.MinimumSize = new System.Drawing.Size(20, 20);
             this.CupBox.Name = "CupBox";
             this.CupBox.ScrollBarsEnabled = false;
-            this.CupBox.Size = new System.Drawing.Size(818, 565);
+            this.CupBox.Size = new System.Drawing.Size(817, 565);
             this.CupBox.TabIndex = 4;
             this.CupBox.Url = new System.Uri("", System.UriKind.Relative);
             this.CupBox.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.CupBox_DocumentCompleted);

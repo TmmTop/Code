@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("LwmReportView")]
-[assembly: AssemblyDescription("桌面应用程序的自定义定制报表组件")]
+[assembly: AssemblyDescription("桌面应用程序的自定义定制报表组件;     使用说明：VS包管理工具直接安装包 Install - Package LwmReportView@1.0.0.3(此版本为稳定版);      先将nuget安装的包的package目录里的content/Libs里的dll引用进项目;      点击工具箱，右键选项 将nuget安装的包 LwmReportView.dll 添加进去;     拖到窗体即可添加控件;     页面加载执行 view1.LoadData('测试', '20170713 0919', '安式软件', string.Format(@'总金额:{0}', '999999'), DoddleProductRepository.GetAll());     参数是标题 ，创建时间，页脚，头部标题（可以显示统计分析的数据，可自定义）;      对象集合可以参考TestModel.cs")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("李为明")]
 [assembly: AssemblyProduct("报表定制组件")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // 可以指定所有值，也可以使用以下所示的 "*" 预置版本号和修订号
 // 方法是按如下所示使用“*”: :
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.2")]
-[assembly: AssemblyFileVersion("1.0.0.2")]
+[assembly: AssemblyVersion("1.0.0.3")]
+[assembly: AssemblyFileVersion("1.0.0.3")]
