@@ -1,3 +1,4 @@
+git pull 
 git add .
 git commit -m "第一次提交"//引号里 提交内容的描述
 git push origin master
