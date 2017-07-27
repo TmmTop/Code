@@ -1,0 +1,7 @@
+C:\Users\49091\Desktop\LogTest\LogTest\bin\Debug\LogTest.exe.config
+C:\Users\49091\Desktop\LogTest\LogTest\bin\Debug\LogTest.exe
+C:\Users\49091\Desktop\LogTest\LogTest\bin\Debug\LogTest.pdb
+C:\Users\49091\Desktop\LogTest\LogTest\bin\Debug\NLog.dll
+C:\Users\49091\Desktop\LogTest\LogTest\bin\Debug\NLog.xml
+C:\Users\49091\Desktop\LogTest\LogTest\obj\Debug\LogTest.exe
+C:\Users\49091\Desktop\LogTest\LogTest\obj\Debug\LogTest.pdb

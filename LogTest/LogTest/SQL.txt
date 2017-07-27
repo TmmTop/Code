@@ -1,0 +1,8 @@
+﻿ CREATE TABLE [dbo].[Logs](
+            [日志编号] [int] primary key IDENTITY(1,1) NOT NULL,
+            [发生日期] [datetime] NOT NULL,
+            [日志来源] [nvarchar](max) NULL,
+            [日志等级] [nvarchar](50) NULL,
+            [日志消息] [nvarchar](max) NULL,
+            [异常信息] [nvarchar](max) NULL,
+            [堆栈信息] [nvarchar](max) NULL) 

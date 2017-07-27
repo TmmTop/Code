@@ -60,6 +60,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libs\DoddleReport.OpenXml.dll</HintPath>
     </Reference>
+    <Reference Include="Kenny.Controls.WinForm, Version=1.1.0.1, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
@@ -103,6 +104,7 @@
     <Content Include="Libs\DoddleReport.AbcPdf.dll" />
     <Content Include="Libs\DoddleReport.dll" />
     <Content Include="Libs\DoddleReport.OpenXml.dll" />
+    <Content Include="Libs\Kenny.Controls.WinForm.dll" />
     <Content Include="Libs\LwmReportView.dll" />
     <Content Include="Res\add_home.png" />
     <Content Include="Res\add_to_database.png" />

@@ -48,11 +48,11 @@
             this.CupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.CupBox.Location = new System.Drawing.Point(0, 32);
+            this.CupBox.Location = new System.Drawing.Point(0, 35);
             this.CupBox.MinimumSize = new System.Drawing.Size(20, 20);
             this.CupBox.Name = "CupBox";
             this.CupBox.ScrollBarsEnabled = false;
-            this.CupBox.Size = new System.Drawing.Size(817, 565);
+            this.CupBox.Size = new System.Drawing.Size(817, 547);
             this.CupBox.TabIndex = 4;
             this.CupBox.Url = new System.Uri("", System.UriKind.Relative);
             this.CupBox.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.CupBox_DocumentCompleted);
@@ -62,7 +62,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.菜单);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(0, 1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 30);
             this.panel1.TabIndex = 5;
@@ -167,7 +167,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.CupBox);
             this.Name = "View";
-            this.Size = new System.Drawing.Size(800, 600);
+            this.Size = new System.Drawing.Size(800, 582);
             this.Load += new System.EventHandler(this.View_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -180,14 +180,14 @@
         #endregion
         public System.Windows.Forms.WebBrowser CupBox;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ToolStrip 菜单;
-        private System.Windows.Forms.ToolStripButton 打印预览;
-        private System.Windows.Forms.ToolStripButton 直接打印;
-        private System.Windows.Forms.ToolStripButton 导出EXCEL;
-        private System.Windows.Forms.ToolStripButton 导出PDF;
-        private System.Windows.Forms.ToolStripButton 导出Word;
-        private System.Windows.Forms.ToolStripButton 导出JSON;
-        private System.Windows.Forms.ToolStripButton 使用帮助;
-        private System.Windows.Forms.ToolStripButton 关于;
+        public System.Windows.Forms.ToolStrip 菜单;
+        public System.Windows.Forms.ToolStripButton 打印预览;
+        public System.Windows.Forms.ToolStripButton 直接打印;
+        public System.Windows.Forms.ToolStripButton 导出EXCEL;
+        public System.Windows.Forms.ToolStripButton 导出PDF;
+        public System.Windows.Forms.ToolStripButton 导出Word;
+        public System.Windows.Forms.ToolStripButton 导出JSON;
+        public System.Windows.Forms.ToolStripButton 使用帮助;
+        public System.Windows.Forms.ToolStripButton 关于;
     }
 }

@@ -20,9 +20,10 @@ F:\GitHub\Git\GitCode\LwmReportView\LwmReportView\bin\Debug\DocumentFormat.OpenX
 F:\GitHub\Git\GitCode\LwmReportView\LwmReportView\bin\Debug\DoddleReport.AbcPdf.dll
 F:\GitHub\Git\GitCode\LwmReportView\LwmReportView\bin\Debug\DoddleReport.dll
 F:\GitHub\Git\GitCode\LwmReportView\LwmReportView\bin\Debug\DoddleReport.OpenXml.dll
+F:\GitHub\Git\GitCode\LwmReportView\LwmReportView\bin\Debug\Kenny.Controls.WinForm.dll
+F:\GitHub\Git\GitCode\LwmReportView\LwmReportView\obj\Debug\LwmReportView.csprojResolveAssemblyReference.cache
 F:\GitHub\Git\GitCode\LwmReportView\LwmReportView\obj\Debug\LwmReportView.Properties.Resources.resources
 F:\GitHub\Git\GitCode\LwmReportView\LwmReportView\obj\Debug\LwmReportView.View.resources
 F:\GitHub\Git\GitCode\LwmReportView\LwmReportView\obj\Debug\LwmReportView.csproj.GenerateResource.Cache
 F:\GitHub\Git\GitCode\LwmReportView\LwmReportView\obj\Debug\LwmReportView.dll
 F:\GitHub\Git\GitCode\LwmReportView\LwmReportView\obj\Debug\LwmReportView.pdb
-F:\GitHub\Git\GitCode\LwmReportView\LwmReportView\obj\Debug\LwmReportView.csprojResolveAssemblyReference.cache
