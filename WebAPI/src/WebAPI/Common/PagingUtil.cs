@@ -5,17 +5,17 @@ using System.Threading.Tasks;
 
 namespace WebAPI.Common
 {
-    /// <summary>
-    /// 分页工具类
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
+    ///<summary>
+    ///分页工具类
+    ///</summary>
+    ///<typeparamname="T"></typeparam>
     public class PagingUtil<T> : List<T>
     {
-        public int DataCount { get; set; } //总记录数
-        public int PageCount { get; set; } //总页数
-        public int PageNo { get; set; } //当前页码
-        public int PageSize { get; set; } //每页显示记录数
-                                          //是否有上一页
+        public int DataCount { get; set; }//总记录数
+        public int PageCount { get; set; }//总页数
+        public int PageNo { get; set; }//当前页码
+        public int PageSize { get; set; }//每页显示记录数
+                                         //是否有上一页
         public bool HasPreviousPage
         {
             get { return PageNo > 1; }
@@ -27,12 +27,12 @@ namespace WebAPI.Common
             get { return PageNo < this.PageCount; }
         }
 
-        /// <summary>
-        /// 构造方法
-        /// </summary>
-        /// <param name="dataList"></param>
-        /// <param name="pageSize"></param>
-        /// <param name="pageNo"></param>
+        ///<summary>
+        ///构造方法
+        ///</summary>
+        ///<paramname="dataList"></param>
+        ///<paramname="pageSize"></param>
+        ///<paramname="pageNo"></param>
         public PagingUtil(List<T> dataList, int pageSize, int pageNo)
         {
             this.PageSize = pageSize;

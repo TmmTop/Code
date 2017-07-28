@@ -13,11 +13,11 @@ namespace WebAPI
         public static void Main(string[] args)
         {
             var host = new WebHostBuilder()
-                 .UseKestrel()
-                 .UseUrls("http://*:88")
-                 .UseContentRoot(Directory.GetCurrentDirectory())
-                 .UseStartup<Startup>()
-                 .Build();
+            .UseKestrel()
+            .UseUrls("http://*:88")
+            .UseContentRoot(Directory.GetCurrentDirectory())
+            .UseStartup<Startup>()
+            .Build();
             host.Run();
         }
     }

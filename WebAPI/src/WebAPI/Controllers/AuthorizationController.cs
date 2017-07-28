@@ -10,7 +10,7 @@ using System.Text;
 using WebAPI.Dao;
 using WebAPI.Model;
 using Newtonsoft.Json;
-
+using WebAPI.Common;
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]/[action]")]
@@ -33,33 +33,40 @@ namespace WebAPI.Controllers
             Coustom = JsonConvert.DeserializeObject<CoustomInfo>(data);//把解析后的json字符串转为Coustom实体类，并赋值给Coustom实体类
             string username = Coustom.account;
             string password = Coustom.passwd;
+            string power = "";//权限
             if (username.Trim() == null && password.Trim() == null)
             {
-                return new JsonResult(new { msg = "账号密码为空！" });
+                return new JsonResult(new { msg = Commons.GetEnumDesc(Commons.AutocationLogin.nullAccount) });
             }
-            if (dao.login(username, password))
+            if (username == "admin" && password == "admin")
             {
-                var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("./?'.][#!@%$#*fgwq12F~"));
-                var options = new TokenProviderOptions
+                if (password == "admin")//验证账号权限   power == "管理员"  
                 {
-                    Audience = "audience",
-                    Issuer = "issuer",
-                    SigningCredentials = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256)
-                };
-                var tpm = new TokenProvider(options);
-                var token = await tpm.GenerateToken(HttpContext, username, password, "");
-                if (token != null)
-                {
-                    return new JsonResult(new { msg = "token生成成功！", token_ticket = token });//生成token,返回给客户端
+                    var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("./?'.][#!@%$#*fgwq12F~"));
+                    var options = new TokenProviderOptions
+                    {
+                        Audience = "audience",
+                        Issuer = "issuer",
+                        SigningCredentials = new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256)
+                    };
+                    var tpm = new TokenProvider(options);
+                    var token = await tpm.GenerateToken(HttpContext, username, password,"");
+                    if (token != null)
+                    {
+                        return new JsonResult(new {type="OK",msg = Commons.GetEnumDesc(Commons.AutocationLogin.okAuto), token_ticket = token});//生成token,返回给客户端
+                    }
+                    else
+                    {
+                        return new JsonResult(new {type = "Wrong", msg = Commons.GetEnumDesc(Commons.AutocationLogin.failAuto)});
+                    }
                 }
-                else
-                {
-                    return new JsonResult(new { msg = "token生成失败,请重试！" });
+                else {
+                    return new JsonResult(new { type = "Wrong", msg = Commons.GetEnumDesc(Commons.AutocationLogin.noPower)});
                 }
             }
             else
             {
-                return new JsonResult(new { msg = "token获取失败,请检查账号密码！" });
+                return new JsonResult(new { type = "Wrong", msg = Commons.GetEnumDesc(Commons.AutocationLogin.failAccount)});
             }
         }
     }

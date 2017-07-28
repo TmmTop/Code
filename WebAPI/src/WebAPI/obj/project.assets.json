@@ -10284,10 +10284,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\工具\\WEBAPI\\WebAPI\\src\\WebAPI\\WebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\49091\\Desktop\\Work\\WebAPI\\src\\WebAPI\\WebAPI.csproj",
       "projectName": "WebAPI",
-      "projectPath": "G:\\工具\\WEBAPI\\WebAPI\\src\\WebAPI\\WebAPI.csproj",
-      "outputPath": "G:\\工具\\WEBAPI\\WebAPI\\src\\WebAPI\\obj\\",
+      "projectPath": "C:\\Users\\49091\\Desktop\\Work\\WebAPI\\src\\WebAPI\\WebAPI.csproj",
+      "outputPath": "C:\\Users\\49091\\Desktop\\Work\\WebAPI\\src\\WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.0"

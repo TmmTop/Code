@@ -1,0 +1,10 @@
+C:\Users\49091\Desktop\OrderExample\OrderExample\bin\Debug\OrderExample.exe.config
+C:\Users\49091\Desktop\OrderExample\OrderExample\bin\Debug\OrderExample.exe
+C:\Users\49091\Desktop\OrderExample\OrderExample\bin\Debug\OrderExample.pdb
+C:\Users\49091\Desktop\OrderExample\OrderExample\bin\Debug\NetDimension.NanUI.dll
+C:\Users\49091\Desktop\OrderExample\OrderExample\obj\Debug\OrderExample.csprojResolveAssemblyReference.cache
+C:\Users\49091\Desktop\OrderExample\OrderExample\obj\Debug\OrderExample.UI.resources
+C:\Users\49091\Desktop\OrderExample\OrderExample\obj\Debug\OrderExample.Properties.Resources.resources
+C:\Users\49091\Desktop\OrderExample\OrderExample\obj\Debug\OrderExample.csproj.GenerateResource.Cache
+C:\Users\49091\Desktop\OrderExample\OrderExample\obj\Debug\OrderExample.exe
+C:\Users\49091\Desktop\OrderExample\OrderExample\obj\Debug\OrderExample.pdb

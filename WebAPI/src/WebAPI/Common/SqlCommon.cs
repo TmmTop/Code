@@ -9,7 +9,7 @@ namespace WebAPI.Common
         {
             get
             {
-                string _connectionString = "data source=.;initial catalog=ResHouse;persist security info=True;user id=sa;password=123456;MultipleActiveResultSets=True;App=EntityFramework";
+                string _connectionString = "data source=.;initial catalog=brnshop;persist security info=True;user id=sa;password=123456;MultipleActiveResultSets=True;App=EntityFramework";
                 return _connectionString;
             }
         }

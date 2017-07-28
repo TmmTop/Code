@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>VueJS学习</title>
+		<script src="js/axios.min.js"></script>
+	</head>
+
+	<body>
+		<script type="application/javascript">
+			function login() { //登录帐号密码获取票据
+				axios.post('http://localhost:88/api/authorization/authorization', {
+					account: 'admin',
+					passwd: 'admin'
+				}).then(function(res) {
+					if(res.data.type == "OK") {
+						var storage = window.localStorage;
+						storage.setItem("token", "Bearer " + res.data.token_ticket.access_token);
+						console.log("授权状态：" + res.data.msg + " token值：" + res.data.token_ticket.access_token);
+					} else {
+						alert(res.data.msg);
+					}
+				}).catch(function(err) {
+					console.log(err)
+				})
+			}
+
+			function load() { //带票据请求数据
+				axios.get('http://localhost:88/api/satin/getsatin', {
+					headers: {
+						"Authorization": window.localStorage.getItem('token')
+					}
+				}).then(function(response) {
+					console.log(response);
+					alert(response.data.content);
+				}).catch(function(error) {
+					if(error.response.status === 401) {
+						alert("请先登录！");
+					}
+					console.log(error.message);
+				})
+			}
+		</script>
+		<input onclick="login()" type="button" value="授权" />
+		<input onclick="load()" type="button" value="加载数据" />
+	</body>
+</html>
